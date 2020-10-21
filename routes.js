@@ -29,6 +29,8 @@ const requestHandler = (request, response) => {
       const parsedBody = Buffer.concat(body).toString()
       const user = parsedBody.split('=')[1]
       console.log(user)
+      response.statusCode = 302
+      response.setHeader('Location', '/')
       return response.end()
     })
   }
